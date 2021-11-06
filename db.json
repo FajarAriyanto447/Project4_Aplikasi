@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "Selamet Dunia Akhirat",
+      "judulBuku": "Komik Boruto The Movie",
+      "tanggalPinjam": "21-11-2021",
+      "tanggalPengembalian": "30-11-2022"
+    },
+    {
+      "id": 2,
+      "nama": "Sarijem",
+      "judulBuku": "Cara Menjadi Wibu",
+      "tanggalPinjam": "2021-11-17",
+      "tanggalPengembalian": "2021-11-24"
+    }
+  ]
+}
