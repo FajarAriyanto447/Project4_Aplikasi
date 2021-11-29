@@ -1,96 +1,99 @@
 <template>
   <div>
     <div class="ngent">
-      <p style="text-align: center">Selamat Datang Admin...</p><br><br>
-      <div class="bungkus">
- <div class="op">
-      <p>From Peminjaman Buku</p>
-
-      <form @submit.prevent="add">
-        <span>Nama Sewa </span><br /><input
-          type="text"
-          v-model="form.nama"
-          placeholder="Masukan Nama Sewa"
-          required
-        /><br /><br />
-
-        <span>Judul Buku </span><br /><input
-          type="text"
-          v-model="form.judulBuku"
-          placeholder="Masukan Judul Buku"
-           required
-        /><br /><br />
-
-        <span>Tanggal Pinjam </span><br /><input
-          type="date"
-          v-model="form.tanggalPinjam"
-          placeholder="Masukan Tanggal Pinjam"
-           required
-        /><br /><br />
-
-        <span>Tanggal Pengembalian</span><br /><input
-          type="date"
-          v-model="form.tanggalPengembalian"
-          placeholder="Masukan Tanggal Pengembalian"
-           required
-        /><br /><br />
-
-        <button class="c" type="submit" v-show="!updateSubmit">
-          Add Peminjaman</button
-        ><br />
-        <button
-          class="c"
-          type="button"
-          v-show="updateSubmit"
-          @click="update(form)"
-        >
-          Add Perpanjangan
-        </button>
-      </form>
+      <p style="text-align: center">Selamat Datang Admin...</p>
       <br /><br />
-      </div>
-      <div class="pp">
-      <p style="margin-left:50px"> Table Daftar Buku</p>
-      <form action="/action_page.php">
-  <label for="cars" style="margin-left:49px">Batas Max Waktu Peminjaman </label>
-  <select name="cars" id="cars">
-    <option value="volvo">5</option>
-    <option value="saab">10</option>
-    <option value="opel">15</option>
-    <option value="audi">20</option>
-  </select> 
-    <label for="cars"> Hari</label>
-  <br><br>
-</form>
+      <div class="bungkus">
+        <div class="op">
+          <p>From Peminjaman Buku</p>
 
-      <table style="width: 100%" >
-        <tr>
-          <th>No</th>
-          <th>Nama Sewa</th>
-          <th>Judul Buku</th>
-          <th>Tanggal Pinjam</th>
-          <th>Tanggal Pengembalian</th>
-          <th>Aksi</th>
-        </tr>
-        <tr v-for="user in users" :key="user.id">
-          <td>{{ user.id }}</td>
-          <td>{{ user.nama }}</td>
-          <td>{{ user.judulBuku }}</td>
-          <td>{{ user.tanggalPinjam }}</td>
-          <td>{{ user.tanggalPengembalian }}</td>
-          <td>
-            <button class="a" @click="edit(user)">Perpanjangan</button>
-            <br /><br>
-            <button class="b" @click="del(user)">Kembali</button>
-          </td>
-        </tr>
-      </table>
-      </div>
+          <form @submit.prevent="add">
+            <span>Nama Sewa </span><br /><input
+              type="text"
+              v-model="form.nama"
+              placeholder="Masukan Nama Sewa"
+              required
+            /><br /><br />
+
+            <span>Judul Buku </span><br /><input
+              type="text"
+              v-model="form.judulBuku"
+              placeholder="Masukan Judul Buku"
+              required
+            /><br /><br />
+
+            <span>Tanggal Pinjam </span><br /><input
+              type="date"
+              v-model="form.tanggalPinjam"
+              placeholder="Masukan Tanggal Pinjam"
+              required
+            /><br /><br />
+
+            <span>Tanggal Pengembalian</span><br /><input
+              type="date"
+              v-model="form.tanggalPengembalian"
+              placeholder="Masukan Tanggal Pengembalian"
+              required
+            /><br /><br />
+
+            <button class="c" type="submit" v-show="!updateSubmit">
+              Add Peminjaman</button
+            ><br />
+            <button
+              class="c"
+              type="button"
+              v-show="updateSubmit"
+              @click="update(form)"
+            >
+              Add Perpanjangan
+            </button>
+          </form>
+          <br /><br />
+        </div>
+        <div class="pp">
+          <p style="margin-left: 50px">Table Daftar Buku</p>
+          <form action="/action_page.php">
+            <label for="cars" style="margin-left: 49px"
+              >Batas Max Waktu Peminjaman
+            </label>
+            <select name="cars" id="cars">
+              <option value="volvo">5</option>
+              <option value="saab">10</option>
+              <option value="opel">15</option>
+              <option value="audi">20</option>
+            </select>
+            <label for="cars"> Hari</label>
+            <br /><br />
+          </form>
+
+          <table style="width: 100%">
+            <tr>
+              <th>No</th>
+              <th>Nama Sewa</th>
+              <th>Judul Buku</th>
+              <th>Tanggal Pinjam</th>
+              <th>Tanggal Pengembalian</th>
+              <th>Aksi</th>
+            </tr>
+            <tr v-for="user in users" :key="user.id">
+              <td>{{ user.id }}</td>
+              <td>{{ user.nama }}</td>
+              <td>{{ user.judulBuku }}</td>
+              <td>{{ user.tanggalPinjam }}</td>
+              <td>{{ user.tanggalPengembalian }}</td>
+              <td>
+                <button class="a" @click="edit(user)">Perpanjangan</button>
+                <br /><br />
+                <button class="b" @click="del(user)">Kembali</button>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script>
 /* eslint-disable */
 import axios from "axios";
@@ -168,7 +171,7 @@ export default {
   },
 };
 </script>
-  
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -183,7 +186,7 @@ table {
   background-color: whitesmoke;
   margin-left: 50px;
 }
-input{
+input {
   width: 90%;
 }
 td {
@@ -222,15 +225,15 @@ p {
   background-color: lightblue;
   margin: 60px;
   padding: 20px;
-} 
-.bungkus{
+}
+.bungkus {
   display: flex;
   margin-left: 20px;
 }
-.pp{
-  border:none;
+.pp {
+  border: none;
 }
 button:hover {
- background-color: blue;
+  background-color: blue;
 }
 </style>
